@@ -1,7 +1,7 @@
 # 💻 Python Network Performance Visualizer
 
 **Description:** 
-This Python script monitors network performance by reading a report file and processing the data using `pandas`. It extracts host connectivity statistics (Success, Slow, Error counts/percentages) and latency metrics (Avg., Max., Min.) via a complex **Regular Expression `regex`**. The processed data is then visualized using `matplotlib` graphs and exported to an Excel report. This provides structured feedback for each host's performance over time.
+This Python script monitors network performance by reading a report file and processing the data using `pandas`. It extracts host connectivity statistics (Success, Slow, Error counts/percentages) and latency metrics (Avg., Max., Min.) via a complex regular expression `regex`. The processed data is then visualized using `matplotlib` graphs and exported to an Excel report. This provides structured feedback for each host's performance over time.
 
 ## ✨ Features
 - Reads a list of hosts and their performance data from a file `report.txt`.
