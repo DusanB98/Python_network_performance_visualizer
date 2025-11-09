@@ -1,3 +1,6 @@
+# Python network performance visualizer
+# Author: DusanB98
+
 import re
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -59,9 +62,9 @@ def bar_percentage_graph():
     data = pandas_DataFrame()
 
     plt.figure(figsize=(10,6))
-    plt.bar(data["Host"], data["Success %"], color="green")
-    plt.bar(data["Host"], data["Slow %"], color="orange")
-    plt.bar(data["Host"], data["Error %"], color="red")
+    plt.bar(data['Host'], data['Success %'], color="green")
+    plt.bar(data['Host'], data['Slow %'], color="orange")
+    plt.bar(data['Host'], data['Error %'], color="red")
     plt.title("Ping Success Rate per Host", fontweight='bold')
     plt.ylabel("Success percentage (%)")
     plt.xticks(rotation=45, ha="right")
@@ -85,7 +88,7 @@ def bar_rate_graph():
     plt.tight_layout()
     plt.savefig("success_rate_chart.png")
 
-def plot_latency_graph():
+def latency_graph():
     data = pandas_DataFrame()
 
     plt.figure(figsize=(10,6))
@@ -105,14 +108,17 @@ def plot_latency_graph():
     plt.grid(True, linestyle='--', alpha=0.5) # grid is active for x and y, style of grid, transparency
     plt.legend()
     plt.tight_layout()
-    plt.savefig("plot_latency_chart.png")
+    plt.savefig("latency_chart.png")
 
 def main():
     reading_report(report_path)
-    pandas_DataFrame()
+    data_frame = pandas_DataFrame()
+    data_frame.to_excel("Network_data_report.xlsx", index=False) #exporting pandas dataframe to the excel to create a report
+
     bar_percentage_graph()
     bar_rate_graph()
-    plot_latency_graph()
+    latency_graph()
+    
     print("Successfully extracted data and created graphs!")
 
 if __name__ == '__main__':
